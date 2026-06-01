@@ -1,0 +1,720 @@
+/* =========================================================
+   SERVICES V2 — outcome-led, visually distinct sections
+   Six practices, four rotating treatments:
+   A) BOLD HERO  B) CARD QUADRANT  C) EDITORIAL  D) TIGHT
+
+   Ported from the original services.html inline <style> block.
+   These classes are used only by src/pages/services.astro.
+   ========================================================= */
+
+/* --- OUTCOMES AT-A-GLANCE STRIP --- */
+.sv-outcomes {
+  padding: var(--space-16) 0 var(--space-20);
+  border-bottom: 1px solid var(--border);
+}
+.sv-outcomes-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+.sv-outcomes-head .eyebrow { margin: 0; }
+.sv-outcomes-head .note {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.sv-outcomes-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  list-style: none;
+}
+.sv-outcomes-list li { background: var(--bg); }
+.sv-outcomes-list a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-6);
+  height: 100%;
+  transition: background var(--duration-base) var(--ease);
+}
+.sv-outcomes-list a:hover { background: var(--bg-card); }
+.sv-outcomes-head-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.sv-outcomes-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  color: var(--fg-faint);
+}
+.sv-outcomes-arrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--fg-faint);
+  transition: transform var(--duration-base) var(--ease), color var(--duration-base) var(--ease);
+}
+.sv-outcomes-list a:hover .sv-outcomes-arrow { color: var(--fg); transform: translate(3px, -3px); }
+.sv-outcomes-name {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.sv-outcomes-text {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.35;
+  color: var(--fg-muted);
+  font-style: italic;
+  letter-spacing: -0.005em;
+  margin-top: var(--space-3);
+}
+@media (max-width: 900px) { .sv-outcomes-list { grid-template-columns: 1fr; } }
+
+/* --- SHARED PRIMITIVES --- */
+.sv-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  font-weight: 500;
+  display: block;
+}
+.sv-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.sv-deliver-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.sv-deliver-list li {
+  font-size: var(--text-base);
+  color: var(--fg);
+  line-height: 1.5;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+.sv-deliver-list li::before {
+  content: '';
+  width: 6px; height: 1px;
+  background: var(--fg-muted);
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+.sv-deliver-list li:last-child { border-bottom: none; }
+.sv-platforms {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   TREATMENT A — BOLD HERO
+   Oversized practice number, outcome as banner under title
+   ========================================================= */
+.sv-bold {
+  padding: var(--space-24) 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.sv-bold-watermark {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(180px, 26vw, 360px);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  color: var(--fg);
+  opacity: 0.04;
+  position: absolute;
+  top: var(--space-8);
+  right: -10px;
+  pointer-events: none;
+  user-select: none;
+  font-weight: 400;
+}
+.sv-bold .container { position: relative; z-index: 1; }
+.sv-bold-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-8);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-12);
+}
+.sv-bold-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.0;
+  letter-spacing: -0.028em;
+  font-weight: 400;
+  max-width: 14ch;
+}
+.sv-bold-head h2 em { color: var(--fg-muted); font-style: italic; }
+.sv-bold-head .sv-num { white-space: nowrap; padding-bottom: var(--space-3); }
+
+.sv-bold-outcome {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  max-width: 26ch;
+  margin-bottom: var(--space-16);
+  position: relative;
+  padding-left: var(--space-8);
+}
+.sv-bold-outcome::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 24px;
+  height: 1px;
+  background: var(--fg);
+}
+.sv-bold-outcome-label {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  display: block;
+  margin-bottom: var(--space-4);
+  font-weight: 500;
+}
+
+.sv-bold-body {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+.sv-bold-body .col-meta { display: flex; flex-direction: column; gap: var(--space-10); }
+.sv-bold-bestfor p {
+  font-size: var(--text-md);
+  color: var(--fg);
+  line-height: 1.55;
+  margin-top: var(--space-4);
+}
+.sv-bold-platforms { margin-top: var(--space-4); }
+
+@media (max-width: 900px) {
+  .sv-bold-head { grid-template-columns: 1fr; align-items: start; }
+  .sv-bold-body { grid-template-columns: 1fr; gap: var(--space-10); }
+  .sv-bold-outcome { padding-left: var(--space-6); }
+  .sv-bold-outcome::before { width: 16px; top: 16px; }
+}
+
+/* =========================================================
+   TREATMENT B — CARD QUADRANT
+   2x2 grid, Outcome cell inverted (fg/bg flip)
+   ========================================================= */
+.sv-cards {
+  padding: var(--space-24) 0;
+  border-bottom: 1px solid var(--border);
+}
+.sv-cards-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--border);
+}
+.sv-cards-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  max-width: 16ch;
+}
+.sv-cards-head h2 em { color: var(--fg-muted); font-style: italic; }
+.sv-cards-head .sv-num { padding-bottom: var(--space-3); white-space: nowrap; }
+
+.sv-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.sv-cards-grid > div {
+  background: var(--bg);
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-height: 260px;
+}
+.sv-cards-grid .card-outcome {
+  background: var(--fg);
+  color: var(--bg);
+}
+.sv-cards-grid .card-outcome .sv-label { color: rgba(10,10,11,0.5); }
+.sv-cards-grid .card-outcome p {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  line-height: 1.25;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  color: var(--bg);
+  margin-top: var(--space-2);
+}
+.sv-cards-grid .card-deliver ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.sv-cards-grid .card-deliver li {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  line-height: 1.5;
+  padding-left: var(--space-4);
+  position: relative;
+}
+.sv-cards-grid .card-deliver li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1px;
+  background: var(--fg-muted);
+}
+.sv-cards-grid .card-bestfor p {
+  font-size: var(--text-md);
+  color: var(--fg);
+  line-height: 1.55;
+  margin-top: var(--space-2);
+}
+.sv-cards-grid .card-platforms p {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  line-height: 1.85;
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .sv-cards-head { grid-template-columns: 1fr; align-items: start; padding-bottom: var(--space-8); }
+  .sv-cards-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   TREATMENT C — DARK EDITORIAL SPREAD
+   Slightly elevated bg, centered pull-quote outcome, 3-col body
+   ========================================================= */
+.sv-editorial {
+  background: var(--bg-elevated);
+  padding: var(--space-24) 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.sv-editorial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 78% 22%, rgba(250,250,247,0.03), transparent 45%),
+    radial-gradient(circle at 12% 80%, rgba(250,250,247,0.02), transparent 45%);
+  pointer-events: none;
+}
+.sv-editorial .container { position: relative; z-index: 1; }
+.sv-editorial-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-12);
+  align-items: end;
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-16);
+}
+.sv-editorial-head .sv-num { padding-bottom: var(--space-3); }
+.sv-editorial-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  max-width: 22ch;
+  justify-self: end;
+  text-align: right;
+}
+.sv-editorial-head h2 em { color: var(--fg-muted); font-style: italic; }
+
+.sv-editorial-pull {
+  max-width: 760px;
+  margin: 0 auto var(--space-16);
+  text-align: center;
+  padding: var(--space-10) 0;
+  position: relative;
+}
+.sv-editorial-pull::before,
+.sv-editorial-pull::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 1px;
+  background: var(--fg);
+  opacity: 0.45;
+}
+.sv-editorial-pull::before { top: 0; }
+.sv-editorial-pull::after { bottom: 0; }
+.sv-editorial-pull .sv-label {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+.sv-editorial-pull blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.22;
+  letter-spacing: -0.018em;
+  color: var(--fg);
+}
+
+.sv-editorial-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-12);
+  align-items: start;
+}
+.sv-editorial-cols .col h4 {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-bottom: var(--space-5);
+  font-weight: 500;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+.sv-editorial-cols .col p { font-size: var(--text-md); line-height: 1.65; color: var(--fg); }
+.sv-editorial-cols .col ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.sv-editorial-cols .col li {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  line-height: 1.5;
+  padding-left: var(--space-4);
+  position: relative;
+}
+.sv-editorial-cols .col li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 6px; height: 1px;
+  background: var(--fg-muted);
+}
+.sv-editorial-cols .col .platforms-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  line-height: 1.85;
+}
+
+@media (max-width: 900px) {
+  .sv-editorial-head { grid-template-columns: 1fr; align-items: start; gap: var(--space-6); }
+  .sv-editorial-head h2 { text-align: left; justify-self: start; }
+  .sv-editorial-cols { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+
+/* =========================================================
+   TREATMENT D — TIGHT / SIMPLE
+   Compressed two-column, outcome as left-rule pull
+   ========================================================= */
+.sv-tight {
+  padding: var(--space-24) 0;
+  border-bottom: 1px solid var(--border);
+}
+.sv-tight-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+.sv-tight .col-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  position: sticky;
+  top: var(--space-16);
+}
+.sv-tight h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  font-weight: 400;
+  margin-top: var(--space-3);
+}
+.sv-tight h2 em { color: var(--fg-muted); font-style: italic; }
+.sv-tight-outcome {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-xl);
+  line-height: 1.4;
+  color: var(--fg);
+  padding: var(--space-2) 0 var(--space-2) var(--space-5);
+  border-left: 2px solid var(--fg);
+  letter-spacing: -0.005em;
+  max-width: 32ch;
+}
+.sv-tight-outcome-label {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  display: block;
+  margin-bottom: var(--space-3);
+  font-weight: 500;
+}
+.sv-tight-bestfor {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+.sv-tight-bestfor p {
+  font-size: var(--text-base);
+  color: var(--fg);
+  line-height: 1.6;
+  margin-top: var(--space-3);
+}
+.sv-tight .col-right { display: flex; flex-direction: column; gap: var(--space-10); }
+.sv-tight .col-right .sv-label { margin-bottom: var(--space-4); }
+
+@media (max-width: 900px) {
+  .sv-tight-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  .sv-tight .col-left { position: static; }
+}
+
+/* =========================================================
+   HOVER POLISH — micro-interactions that make sections come
+   alive as the user moves through the page.
+   ========================================================= */
+
+/* Outcomes cards — clearer hover affordance: rule under the practice name
+   slides in, arrow gets a stronger nudge. */
+.sv-outcomes-list a { position: relative; }
+.sv-outcomes-list a::after {
+  content: '';
+  position: absolute;
+  left: var(--space-7, var(--space-8));
+  right: var(--space-7, var(--space-8));
+  bottom: var(--space-6);
+  height: 1px;
+  background: var(--fg);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-slow) var(--ease);
+  opacity: 0.6;
+}
+.sv-outcomes-list a:hover::after { transform: scaleX(1); }
+.sv-outcomes-list a:hover .sv-outcomes-name { color: var(--fg); }
+.sv-outcomes-list a .sv-outcomes-name { transition: color var(--duration-base) var(--ease); }
+
+/* Card-quadrant cells — gentle background lift on hover (except the inverted
+   outcome cell, which gets a different treatment to stay readable). */
+.sv-cards-grid > div { transition: background var(--duration-base) var(--ease); }
+.sv-cards-grid > div:not(.card-outcome):hover { background: var(--bg-card); }
+.sv-cards-grid .card-outcome { transition: filter var(--duration-base) var(--ease); }
+.sv-cards-grid .card-outcome:hover { filter: brightness(0.97); }
+
+/* Bold-hero sections — watermark numeral drifts and brightens on section
+   hover, like a print plate easing into place. */
+.sv-bold { position: relative; }
+.sv-bold-watermark {
+  transition:
+    opacity var(--duration-slow) var(--ease),
+    transform var(--duration-slow) var(--ease);
+}
+.sv-bold:hover .sv-bold-watermark {
+  opacity: 0.07;
+  transform: translateX(-12px);
+}
+
+/* Editorial pull-quote — the centered hairlines extend on hover. */
+.sv-editorial-pull::before,
+.sv-editorial-pull::after {
+  transition: width var(--duration-slow) var(--ease), opacity var(--duration-slow) var(--ease);
+}
+.sv-editorial:hover .sv-editorial-pull::before,
+.sv-editorial:hover .sv-editorial-pull::after {
+  width: 120px;
+  opacity: 0.6;
+}
+
+/* Deliverables list — tiny indent on row hover. */
+.sv-deliver-list li {
+  transition: padding-left var(--duration-base) var(--ease), color var(--duration-base) var(--ease);
+}
+.sv-deliver-list li:hover {
+  padding-left: var(--space-2);
+}
+
+/* Tight-section outcome bar — left rule thickens on hover. */
+.sv-tight-outcome { transition: border-color var(--duration-base) var(--ease); }
+.sv-tight:hover .sv-tight-outcome { border-left-color: var(--fg); }
+
+/* =========================================================
+   SECTION FLOW — reveal-on-scroll. Reuses the global .reveal
+   pattern (IntersectionObserver in site.js → .in class).
+   Each section's main content fades up as it enters view, so
+   the page reads as a continuous unfold instead of a stack.
+   ========================================================= */
+.sv-outcomes-list.reveal { transition-delay: 80ms; }
+.sv-bold-head.reveal,
+.sv-cards-head.reveal,
+.sv-editorial-head.reveal,
+.sv-tight .col-left.reveal { transition-delay: 0ms; }
+.sv-bold-outcome.reveal,
+.sv-editorial-pull.reveal { transition-delay: 120ms; }
+.sv-bold-body.reveal,
+.sv-cards-grid.reveal,
+.sv-editorial-cols.reveal,
+.sv-tight .col-right.reveal { transition-delay: 200ms; }
+
+/* =========================================================
+   STAGGERED CHILDREN — adds a fine staircase to the global
+   .reveal entrance. When a section enters view, its block
+   fades up AND its inner items cascade in sequence, so the
+   whole page reads as a continuous unfold rather than a
+   stack of card flips.
+   ========================================================= */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 700ms cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+.reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.in > *:nth-child(1)   { transition-delay:  60ms; }
+.reveal-stagger.in > *:nth-child(2)   { transition-delay: 130ms; }
+.reveal-stagger.in > *:nth-child(3)   { transition-delay: 200ms; }
+.reveal-stagger.in > *:nth-child(4)   { transition-delay: 270ms; }
+.reveal-stagger.in > *:nth-child(5)   { transition-delay: 340ms; }
+.reveal-stagger.in > *:nth-child(6)   { transition-delay: 410ms; }
+.reveal-stagger.in > *:nth-child(7)   { transition-delay: 480ms; }
+.reveal-stagger.in > *:nth-child(8)   { transition-delay: 550ms; }
+.reveal-stagger.in > *:nth-child(n+9) { transition-delay: 620ms; }
+
+/* Editorial pull-quote — hairlines extend from center on entrance,
+   blockquote scales in subtly behind them. */
+.sv-editorial-pull.reveal::before,
+.sv-editorial-pull.reveal::after { width: 0; }
+.sv-editorial-pull.reveal.in::before,
+.sv-editorial-pull.reveal.in::after { width: 64px; }
+.sv-editorial-pull.reveal blockquote {
+  opacity: 0;
+  transform: scale(0.97);
+  transition:
+    opacity 900ms 200ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 900ms 200ms cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+.sv-editorial-pull.reveal.in blockquote { opacity: 1; transform: scale(1); }
+
+/* Tight-section outcome rule — grows from top on entrance. */
+.sv-tight .col-left.reveal .sv-tight-outcome {
+  --outcome-rule-scale: 0;
+  border-left-color: transparent;
+  position: relative;
+}
+.sv-tight .col-left.reveal .sv-tight-outcome::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--fg);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 900ms 250ms cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+.sv-tight .col-left.reveal.in .sv-tight-outcome::before { transform: scaleY(1); }
+
+/* Honor reduced-motion — collapse stagger to instant. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-stagger > *,
+  .sv-editorial-pull.reveal blockquote,
+  .sv-tight .col-left.reveal .sv-tight-outcome::before {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+}
+
+/* =========================================================
+   .sv-pop — text-pop entrance for the bold outcome banners.
+   Triggered by an EAGER observer (rootMargin extends 25%
+   below the viewport) so the animation runs while the
+   element is still below the fold and is complete by the
+   time it actually scrolls into view. No reserved-empty gap.
+   ========================================================= */
+.sv-pop {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 600ms cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+.sv-pop.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sv-pop .sv-bold-outcome-label {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 500ms 200ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 500ms 200ms cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+.sv-pop.in .sv-bold-outcome-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sv-pop,
+  .sv-pop .sv-bold-outcome-label {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

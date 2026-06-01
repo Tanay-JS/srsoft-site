@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+// Services-specific styles (the .sv-* treatments). Ported from the original
+// services.html inline <style>; loaded only on this page.
+import '../styles/services-v2.css';
 ---
 <BaseLayout
   title="Services — SR Soft LLC"
@@ -359,4 +362,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <a href="/contact" class="btn btn-primary">Schedule a consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
+
+<script is:inline>
+  // Eager-fire observer for .sv-pop text-pop entrance. Triggers while the
+  // element is still 25% below the viewport so the 600ms animation is
+  // complete by the time you actually scroll to it — no empty gap, no
+  // mid-scroll missing text. Ported from the original services.html.
+  (function() {
+    const els = document.querySelectorAll('.sv-pop');
+    if (!els.length) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || typeof IntersectionObserver === 'undefined') {
+      els.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0, rootMargin: '0px 0px 25% 0px' });
+    els.forEach(el => obs.observe(el));
+  })();
+</script>
 </BaseLayout>
