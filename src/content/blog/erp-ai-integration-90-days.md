@@ -1,11 +1,12 @@
 ---
-title: "Why most ERP-AI integration projects fail in the first 90 days"
-description: "The pattern is depressingly consistent. A board approves an AI initiative, a firm scopes it, and it quietly stalls about ten weeks in. Here's the diagnosis nobody wants to write down."
+title: Why most ERP-AI integration projects fail in the first 90 days
+description: The pattern is depressingly consistent. A board approves an AI initiative, a firm scopes it, and it quietly stalls about ten weeks in. Here's the diagnosis nobody wants to write down.
 pubDate: 2026-04-01
 published: true
-author: "The SR Soft team"
-category: "ERP & AI"
-readingTime: "12 min read"
+author: The SR Soft team
+category: ERP & AI
+readingTime: 12 min read
+cover: /uploads/When-AI-Meets-ERP-Blog-Banner.jpg
 ---
 
 The pattern is depressingly consistent. A board approves an AI initiative. A consulting firm scopes it. The project starts, makes early demo progress, and quietly stalls about ten weeks in. Three months later, the steering committee gets a "phase one complete" deck, the consultants leave, and nothing meaningful has actually changed about how the business runs.
@@ -38,11 +39,9 @@ The technical team gets started. Data extraction. Model selection. Prompt engine
 
 This is where it goes sideways. The team begins user testing or shadowing real workflows. Three things become apparent at roughly the same time:
 
-  1. The data the AI is consuming has more edge cases than anyone documented.
-  2. The workflow the AI is supposed to fit into has unwritten exceptions that the people doing the work consider normal.
-  3. The integration with the ERP is fine technically but creates downstream effects in two other systems that nobody scoped.
-
-
+    1. The data the AI is consuming has more edge cases than anyone documented.
+    2. The workflow the AI is supposed to fit into has unwritten exceptions that the people doing the work consider normal.
+    3. The integration with the ERP is fine technically but creates downstream effects in two other systems that nobody scoped.
 
 ### Weeks 10–12: The drift phase
 
@@ -64,11 +63,9 @@ Most workflow diagrams capture the 80% case. The 20% case is where the value of 
 
 This phrase has become so common that it's lost meaning. We force ourselves to write the answers to three questions before any code gets written:
 
-  * Who is the human?
-  * What decision are they making?
-  * What information do they need to make it well?
-
-
+    - Who is the human?
+    - What decision are they making?
+    - What information do they need to make it well?
 
 If you can't answer these three questions in two sentences each, you're not ready to build. We've turned down projects at this stage. It's not always popular. It's always correct.
 
@@ -88,11 +85,9 @@ This is also why companies with strong ERP and process discipline tend to do bet
 
 If you're starting an AI initiative, three things to put in the SOW:
 
-  * A discovery phase of at least three weeks, with shadowing as a first-class deliverable, not a "nice to have."
-  * An exception-mapping artifact that the operations leader signs off on.
-  * A clearly defined human-in-the-loop role for the first six months of production, even if you intend to remove it later.
-
-
+    - A discovery phase of at least three weeks, with shadowing as a first-class deliverable, not a "nice to have."
+    - An exception-mapping artifact that the operations leader signs off on.
+    - A clearly defined human-in-the-loop role for the first six months of production, even if you intend to remove it later.
 
 And one thing to negotiate out: the requirement to demo in week six. Demos before workflow validation create false confidence. Replace "demo" with "first dry-run with one real user, on real data, for one real ticket." Slower. Less impressive. Vastly more predictive of whether the project will land.
 
