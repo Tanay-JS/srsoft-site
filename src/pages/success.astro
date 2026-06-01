@@ -1,0 +1,20 @@
+---
+// Thank-you page Netlify Forms redirects to after a successful contact submit.
+// Pointed at by the contact form's action="/success/".
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Message received — SR Soft LLC"
+  description="Thanks for reaching out to SR Soft LLC. We respond within one business day."
+>
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Contact</p>
+    <h1 class="display-2">Message <em>received.</em></h1>
+    <p class="lead">Thanks for reaching out. We read every message and respond within one business day — no automated funnels. If it's urgent, call <a href="tel:+17328352220">+1 732-835-2220</a> or email <a href="mailto:admin@srsoftllc.com">admin@srsoftllc.com</a>.</p>
+    <p style="margin-top: var(--space-8);">
+      <a href="/" class="btn btn-primary">Back to home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </p>
+  </div>
+</section>
+</BaseLayout>
