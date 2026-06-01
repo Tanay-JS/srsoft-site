@@ -1,7 +1,6 @@
 ---
 // Insights listing — ported from blog.html, now driven by the content
-// collection. Newest post is featured; the rest fill the grid. The newsletter
-// form is wired to Netlify Forms (was a placeholder alert in the prototype).
+// collection. Newest post is featured; the rest fill the grid.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -62,17 +61,4 @@ const num = (i) => String(i).padStart(2, '0');
   </div>
 </section>
 
-<section class="final-cta">
-  <div class="container">
-    <h2>Get our essays. <em>Once a month.</em></h2>
-    <p>No marketing. No round-ups. Just one well-considered piece on enterprise AI, ERP, or the work of consulting itself.</p>
-    <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="newsletter" />
-      <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
-      <label for="newsletter-email" class="sr-only">Email address</label>
-      <input type="email" id="newsletter-email" name="email" required autocomplete="email" placeholder="your@email.com" aria-required="true" />
-      <button type="submit" class="btn btn-primary">Subscribe</button>
-    </form>
-  </div>
-</section>
 </BaseLayout>

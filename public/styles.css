@@ -864,6 +864,10 @@ footer { padding: var(--space-20) 0 var(--space-10); background: var(--bg); }
 .form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--fg); outline: none; }
 .form-row input::placeholder, .form-row textarea::placeholder { color: var(--fg-faint); }
 .form-row select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23888' d='M5 6L0 0h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
+/* Dropdown popup options: dark elevated background + light text so the
+   native list is readable on the dark theme (was white-on-white). */
+.form-row select option { background-color: var(--bg-elevated); color: var(--fg); }
+.form-row select option:disabled, .form-row select option[value=""] { color: var(--fg-muted); }
 .form-row .helper { font-size: var(--text-xs); color: var(--fg-faint); margin-top: var(--space-2); font-family: var(--font-mono); }
 .form-actions { padding-top: var(--space-4); }
 @media (max-width: 768px) {
@@ -4836,6 +4840,32 @@ html:not(.js) .reveal {
 }
 .head-figure-gear .gear-cap-no {
   color: var(--fg-faint);
+}
+/* Clean pill tags under the hero figures (globe / gear) — not a "FIG." caption */
+.head-fig-tags {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -44px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+.head-fig-tags .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--bg-elevated);
+}
+.head-fig-tags .pill-status .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--status-active);
+  box-shadow: 0 0 8px var(--status-active-glow);
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
 }
 .js-anim .head-figure-gear {
   opacity: 0;
