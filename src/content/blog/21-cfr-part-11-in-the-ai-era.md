@@ -1,5 +1,5 @@
 ---
-title: Shreya
+title: SAP AI
 description: Part 1 was written for electronic records and signatures, long before generative models. Applying it to an AI system that produces non-deterministic output forces questions the regulation never anticipated — and that auditors are starting to ask.
 pubDate: 2026-01-28
 published: true
