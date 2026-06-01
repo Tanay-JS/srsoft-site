@@ -6,7 +6,7 @@ published: true
 author: The SR Soft team
 category: ERP & AI
 readingTime: 12 min read
-cover: /uploads/When-AI-Meets-ERP-Blog-Banner.jpg
+cover: ''
 ---
 
 The pattern is depressingly consistent. A board approves an AI initiative. A consulting firm scopes it. The project starts, makes early demo progress, and quietly stalls about ten weeks in. Three months later, the steering committee gets a "phase one complete" deck, the consultants leave, and nothing meaningful has actually changed about how the business runs.
