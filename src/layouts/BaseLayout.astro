@@ -1,0 +1,142 @@
+---
+// ============================================================================
+// BaseLayout.astro — shared shell for every page (head, nav, footer, e-verify).
+// Ported from the original Claude Design site. Page content goes in <slot/>.
+//
+// Props:
+//   title        <title> + meta
+//   description  meta description
+//   current      which nav item to mark aria-current ("services","about",
+//                "training","careers","blog","contact", or undefined)
+//   bodyData     optional value for the <body data-hero="..."> attribute (home)
+// ============================================================================
+const {
+  title,
+  description = '',
+  current,
+  bodyData,
+} = Astro.props;
+
+const nav = [
+  { href: '/services', label: 'Services', key: 'services' },
+  { href: '/about', label: 'About', key: 'about' },
+  { href: '/training', label: 'Training', key: 'training' },
+  { href: '/careers', label: 'Careers', key: 'careers' },
+  { href: '/blog', label: 'Insights', key: 'blog' },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<title>{title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-hero={bodyData} class="js-anim">
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="top" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="/" class="logo-link" aria-label="SR Soft homepage">
+      <img src="/logo-mark.png" alt="" aria-hidden="true" class="nav-mark" />
+      <span class="nav-wordmark">SR Soft</span>
+    </a>
+    <ul class="nav-links" role="list">
+      {nav.map((item) => (
+        <li>
+          <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+    <a href="/contact" class="nav-cta" aria-current={current === 'contact' ? 'page' : undefined}>Book a call <span aria-hidden="true">&#8594;</span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span>
+      <span class="nav-toggle-dot" aria-hidden="true"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <ul role="list">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/training">Training</a></li>
+    <li><a href="/careers">Careers</a></li>
+    <li><a href="/blog">Insights</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <slot />
+</main>
+
+<aside class="everify-badge" aria-label="E-Verify employer">
+  <a class="everify-link" href="https://www.e-verify.gov" target="_blank" rel="noopener noreferrer">
+    <img src="/e-verify-logo.png" alt="E-Verify" class="everify-logo-img" width="240" height="77" loading="lazy" />
+    <div class="everify-text">
+      <strong>Authorized Employer</strong>
+      <span>SR Soft LLC participates</span>
+    </div>
+  </a>
+  <button class="everify-close" aria-label="Hide E-Verify badge">&#215;</button>
+</aside>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">SR Soft</a>
+        <p>SAP and AI consulting since 2004. Two decades of enterprise work, headquartered in Sugar Land, Texas. Engagements across the United States.</p>
+        <div class="footer-everify">
+          <img src="/e-verify-logo.png" alt="E-Verify" class="footer-everify-logo" width="240" height="77" loading="lazy" />
+          <span>Authorized Employer</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul role="list">
+          <li><a href="/services#sap">SAP &amp; Enterprise Apps</a></li>
+          <li><a href="/services#ai">Artificial Intelligence</a></li>
+          <li><a href="/services#data">Data Engineering</a></li>
+          <li><a href="/services#cloud">Cloud Services</a></li>
+          <li><a href="/services#pharma">Pharma &amp; Life Sciences</a></li>
+          <li><a href="/services#management">Management Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul role="list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/training">Training &amp; Placement</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/blog">Insights</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in touch</h5>
+        <ul role="list">
+          <li><a href="tel:+17328352220">+1 732-835-2220</a></li>
+          <li><a href="mailto:admin@srsoftllc.com">admin@srsoftllc.com</a></li>
+          <li><a href="https://maps.app.goo.gl/2Ebp4PZ5n9QiXJU67" target="_blank" rel="noopener">18722 University Blvd<br />Suite 200, Sugar Land, TX 77479</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 SR Soft LLC &middot; All rights reserved</span>
+      <span>An E-Verified employer</span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>document.documentElement.classList.add('js'); document.body.classList.add('js-anim');</script>
+<script src="/site.js" is:inline defer></script>
+</body>
+</html>

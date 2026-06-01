@@ -1,0 +1,48 @@
+---
+// Single article — ported from post.html, now rendering each collection entry.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((p) => p.data.published);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const d = post.data;
+const month = d.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+---
+<BaseLayout title={`${d.title} — SR Soft`} description={d.description} current="blog">
+<article class="post-article">
+  <p class="eyebrow">{d.category} · Field notes</p>
+  <h1>{d.title}</h1>
+  <div class="post-meta">
+    <span>{month}</span>
+    {d.readingTime && <span>{d.readingTime}</span>}
+    <span>By {d.author}</span>
+  </div>
+  <div class="post-body">
+    {d.cover && <img src={d.cover} alt="" class="post-cover" />}
+    <Content />
+  </div>
+</article>
+
+<div class="post-foot">
+  <div class="post-author">
+    <div class="post-author-avatar" aria-hidden="true"></div>
+    <div class="post-author-info">
+      <div class="name">{d.author}</div>
+      <div class="role">Field notes from active engagements</div>
+    </div>
+  </div>
+  <a href="/blog" class="btn btn-ghost">&#8592; All insights</a>
+</div>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Have a project worth doing right? <em>Let's talk.</em></h2>
+    <a href="/contact" class="btn btn-primary">Schedule a consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+</BaseLayout>

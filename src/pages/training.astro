@@ -1,0 +1,457 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Training & Placement — SR Soft LLC"
+  description="SR Soft training and placement — building enterprise consultants."
+  current="training"
+>
+<!-- ============================================================
+     EDITORIAL TRAINING HEADER
+     ============================================================ -->
+<section class="training-v2-head" data-screen-label="01 Training">
+  <div class="container">
+    <div class="training-v2-head-grid">
+      <div class="training-v2-head-main">
+        <div class="editorial-rule">
+          <span>Training &amp; Placement</span>
+        </div>
+        <h1 class="training-v2-headline">Career counseling<br>that ends with<br><em>a real job.</em></h1>
+        <p class="training-v2-lead">For early-career consultants and mid-career professionals making a platform shift. Personalized guidance, technical training, and direct placement into engagements with our Fortune 500 clients.</p>
+        <div class="training-v2-actions">
+          <a href="/contact" class="btn btn-primary">Book a 1:1 consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="#phases" class="btn btn-outline">See how it works</a>
+        </div>
+      </div>
+
+      <figure class="head-figure head-figure-careers">
+        <span class="head-figure-stamp" style="display:none" aria-hidden="true"></span>
+        <div class="head-figure-image-wrap">
+          <img src="/handshake.jpg" alt="A handshake between two consultants in suits" class="head-figure-image" loading="eager" decoding="async">
+        </div>
+        <figcaption hidden></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROMISE — Three-statement editorial
+     ============================================================ -->
+<section class="training-v2-promise" data-screen-label="02 Promise">
+  <div class="container">
+    <div class="training-v2-promise-grid reveal">
+      <div class="training-v2-promise-label">Our commitment</div>
+      <div class="training-v2-promise-item">
+        <span class="num">01 /</span>
+        <h3>We train for the job, <em>not the certificate.</em></h3>
+        <p>Curricula are built backwards from what our clients hire for. If a tool isn't on a live engagement, it isn't in the program.</p>
+      </div>
+      <div class="training-v2-promise-item">
+        <span class="num">02 /</span>
+        <h3>You finish with <em>a portfolio,</em> not a slide deck.</h3>
+        <p>Shadow engagements alongside senior consultants. Real tickets. Real client communication. Documented work to point to.</p>
+      </div>
+      <div class="training-v2-promise-item">
+        <span class="num">03 /</span>
+        <h3>Placement isn't <em>a referral.</em></h3>
+        <p>We place you on an SR Soft engagement directly. Mentorship continues for the first 90 days on the job.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOUR PHASES — scroll-driven single card
+     ============================================================ -->
+<section class="phases-scroll" id="phases" aria-label="Our four-phase process" data-screen-label="03 Phases">
+  <div class="phases-sticky">
+    <div class="container">
+      <div class="phases-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2 class="display-3">Four phases. <em>Conversation to placement.</em></h2>
+      </div>
+
+      <!-- The single card -->
+      <div class="phases-card">
+        <div class="phases-card-bar">
+          <span class="phases-counter">
+            <span class="phases-counter-num">01</span><span class="phases-counter-total">&thinsp;/&thinsp;04</span>
+          </span>
+          <div class="phases-dashes" aria-label="Jump to a phase">
+            <button class="phases-dash is-active" data-phase="0" type="button" aria-label="Phase 1: Counsel"></button>
+            <button class="phases-dash" data-phase="1" type="button" aria-label="Phase 2: Train"></button>
+            <button class="phases-dash" data-phase="2" type="button" aria-label="Phase 3: Practice"></button>
+            <button class="phases-dash" data-phase="3" type="button" aria-label="Phase 4: Place"></button>
+          </div>
+        </div>
+
+        <div class="phases-stage">
+          <article class="phase-panel is-active" data-phase="0">
+            <div class="phase-label">
+              <span class="phase-label-num">01</span>
+              <span class="phase-label-name">Counsel</span>
+            </div>
+            <div class="phase-body">
+              <h3>We start with a 1:1 career conversation.</h3>
+              <p>What you've done, what you want next, and what's realistic in the current market. Free, no commitment, no pressure to enroll. If we don't think we can help, we'll tell you.</p>
+            </div>
+            <div class="phase-mock" aria-hidden="true">
+              <div class="mock-row"><span class="mock-dot live"></span><span>Initial consultation · 45 min</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Skill assessment · written</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Track recommendation</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Placement timeline estimate</span></div>
+            </div>
+          </article>
+
+          <article class="phase-panel" data-phase="1">
+            <div class="phase-label">
+              <span class="phase-label-num">02</span>
+              <span class="phase-label-name">Train</span>
+            </div>
+            <div class="phase-body">
+              <h3>We train you for the technologies that are used in the industry.</h3>
+              <p>Not a generic certification. The specific skills, tools, and contextual judgment that decide whether you ramp quickly on a real engagement. Cohort-based, instructor-led, with hands-on project work.</p>
+            </div>
+            <div class="phase-mock" aria-hidden="true">
+              <pre class="mock-code"><span class="kw">curriculum</span>: SAP S/4HANA · functional
+  weeks 1-4:  config + master data
+  weeks 5-8:  process flows
+  weeks 9-12: hands-on capstone
+  <span class="kw">cohort_size</span>: 8 max</pre>
+            </div>
+          </article>
+
+          <article class="phase-panel" data-phase="2">
+            <div class="phase-label">
+              <span class="phase-label-num">03</span>
+              <span class="phase-label-name">Practice</span>
+            </div>
+            <div class="phase-body">
+              <h3>We pair you with senior consultants on shadow engagements.</h3>
+              <p>Before you ever bill on a client project, you've already worked alongside someone who has. Real tickets. Real architecture decisions. Real client communication. A documented portfolio of work to show.</p>
+            </div>
+            <div class="phase-mock" aria-hidden="true">
+              <div class="mock-row"><span class="mock-dot live"></span><span>Shadow engagement · 6 weeks</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Mentor · senior consultant</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Portfolio · 3 deliverables</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Reference letter</span></div>
+            </div>
+          </article>
+
+          <article class="phase-panel" data-phase="3">
+            <div class="phase-label">
+              <span class="phase-label-num">04</span>
+              <span class="phase-label-name">Place</span>
+            </div>
+            <div class="phase-body">
+              <h3>We help you find clients or place you with an existing client.</h3>
+              <p>Direct placement on a live SR Soft engagement, or active introductions to clients in our network — whichever fits faster. Mentorship continues for the first 90 days on the job.</p>
+            </div>
+            <div class="phase-mock" aria-hidden="true">
+              <div class="mock-row"><span class="mock-dot live"></span><span>Placement offer · accepted</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Onboarding · 2 weeks</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>90-day check-ins</span></div>
+              <div class="mock-row"><span class="mock-dot"></span><span>Career roadmap · year 1</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPT / STEM OPT — editorial storytelling
+     ============================================================ -->
+<section class="training-v2-opt" data-screen-label="04 OPT">
+  <div class="container">
+    <div class="training-v2-opt-grid reveal">
+      <figure class="training-v2-opt-image">
+        <img src="/no_job.png" alt="A recent graduate scanning job listings late at night, weighing uncertain career options" loading="lazy">
+        <figcaption>
+          <span class="figcap-no">FIG. 01</span>
+          <span class="figcap-text">11pm, another job board. The maze is real — and so is the way through it.</span>
+        </figcaption>
+      </figure>
+
+      <div class="training-v2-opt-text">
+        <p class="eyebrow">For OPT &amp; STEM OPT students</p>
+        <h2 class="display-3">Navigating the maze<br>of career choices? <em>Look no further.</em></h2>
+        <p class="opt-prose">We hire international and graduate students on OPT, STEM OPT extension, and H-1B transfer. From bewildered applicant to placed consultant — the journey doesn't have to be uncertain.</p>
+        <div class="training-v2-opt-tags">
+          <span class="pill">F-1 OPT</span>
+          <span class="pill">STEM OPT Extension</span>
+          <span class="pill">H-1B Transfer</span>
+          <span class="pill">CPT Sponsorship</span>
+        </div>
+        <div class="training-v2-opt-cta">
+          <a href="/careers" class="btn btn-outline">View open roles <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FREE SAMPLE COURSE — SAP BTP Foundations
+     A taste of how we teach. Self-contained, browser-only,
+     five modules, free.
+     ============================================================ -->
+<section class="section sample-course" data-screen-label="04b Sample course">
+  <div class="container">
+
+    <div class="sample-course-head reveal">
+      <div class="sample-course-eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Free sample course · Open access</span>
+      </div>
+      <div class="sample-course-head-grid">
+        <h2 class="display-3">A taste of <em>how we teach.</em><br>Five modules. Zero cost.</h2>
+        <p class="sample-course-lead">Want to see the program before you apply? We've published one of our internal foundation courses — <strong>SAP BTP Foundations</strong> — in full. No signup, no email gate. Open the first module in a new tab and read your way in.</p>
+      </div>
+    </div>
+
+    <div class="sample-course-card reveal">
+      <div class="scc-side">
+        <div class="scc-stamp">SR Soft<br><em>Curriculum</em></div>
+        <dl class="scc-facts">
+          <div>
+            <dt>Course</dt>
+            <dd>SAP BTP Foundations</dd>
+          </div>
+          <div>
+            <dt>Modules</dt>
+            <dd>5</dd>
+          </div>
+          <div>
+            <dt>Total time</dt>
+            <dd>14 – 19 hours</dd>
+          </div>
+          <div>
+            <dt>Cost</dt>
+            <dd>$0 — free &amp; open</dd>
+          </div>
+          <div>
+            <dt>Prerequisites</dt>
+            <dd>None. Every term defined as it appears.</dd>
+          </div>
+        </dl>
+        <a href="training/sap-btp/index.html" target="_blank" rel="noopener" class="btn btn-primary scc-cta">
+          Start the course
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="scc-note">Opens in a new tab. The course follows a fictional bookshop — Meridian Books — as it adopts SAP BTP, so every concept is rooted in a real problem.</p>
+      </div>
+
+      <ol class="scc-modules" aria-label="Course modules">
+        <li>
+          <a href="training/sap-btp/module-1.html" target="_blank" rel="noopener">
+            <span class="scc-mod-num">01</span>
+            <div class="scc-mod-body">
+              <h4>Foundation — CAP &amp; Fiori Elements</h4>
+              <p>Set up a free BTP trial. Build a real catalog service from scratch with the SAP Cloud Application Programming model and a ready-made Fiori UI, then deploy it to a live URL on Cloud Foundry.</p>
+              <div class="scc-mod-meta">
+                <span class="scc-tag scc-tag-deep">Deep</span>
+                <span>~4 – 6 hrs</span>
+                <span>Browser only</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="training/sap-btp/module-2.html" target="_blank" rel="noopener">
+            <span class="scc-mod-num">02</span>
+            <div class="scc-mod-body">
+              <h4>Integration — connecting systems</h4>
+              <p>A guided tour of SAP Integration Suite. Trace a pre-built integration flow between Meridian Books' online store and its warehouse to see exactly how a message travels between systems.</p>
+              <div class="scc-mod-meta">
+                <span class="scc-tag scc-tag-light">Light</span>
+                <span>~2 – 3 hrs</span>
+                <span>Browser only</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="training/sap-btp/module-3.html" target="_blank" rel="noopener">
+            <span class="scc-mod-num">03</span>
+            <div class="scc-mod-body">
+              <h4>Administration &amp; Security</h4>
+              <p>How a BTP account is organised: subaccounts, entitlements, quotas, service instances, and user permissions. You play the platform administrator for Meridian Books.</p>
+              <div class="scc-mod-meta">
+                <span class="scc-tag scc-tag-light">Light</span>
+                <span>~2 – 3 hrs</span>
+                <span>Browser only</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="training/sap-btp/module-4.html" target="_blank" rel="noopener">
+            <span class="scc-mod-num">04</span>
+            <div class="scc-mod-body">
+              <h4>SAP Build — low-code &amp; no-code</h4>
+              <p>Meet the SAP Build family of tools: apps, automations, and portals with little or no code. Assemble a small no-code app for the Meridian Books team by dragging and dropping.</p>
+              <div class="scc-mod-meta">
+                <span class="scc-tag scc-tag-light">Light</span>
+                <span>~2 – 3 hrs</span>
+                <span>Browser only</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="training/sap-btp/module-5.html" target="_blank" rel="noopener">
+            <span class="scc-mod-num">05</span>
+            <div class="scc-mod-body">
+              <h4>RAP — the ABAP way</h4>
+              <p>The deep finish. Rebuild the catalog idea from Module 1 — but the classic SAP way, with the ABAP RESTful Application Programming Model. The only module that uses desktop tooling.</p>
+              <div class="scc-mod-meta">
+                <span class="scc-tag scc-tag-deep">Deep</span>
+                <span>~3 – 4 hrs</span>
+                <span>Needs desktop tools</span>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRAINING TRACKS — editorial grid, just the essentials
+     ============================================================ -->
+<section class="section training-v2-tracks" data-screen-label="05 Tracks">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Training tracks</p>
+      <h2 class="display-3">Six tracks. <em>Cohort-based.</em><br>Built for the work.</h2>
+      <p>New cohorts open quarterly. Tracks are added based on client demand — if you don't see your area, contact us. We may have one starting soon.</p>
+    </div>
+
+    <div class="track-grid reveal">
+
+      <article class="track-card">
+        <span class="track-num">01</span>
+        <h3>AI &amp; Machine Learning</h3>
+        <p class="track-desc">Custom LLM apps, RAG, agents, MLOps — the production-grade AI work clients actually procure.</p>
+      </article>
+
+      <article class="track-card">
+        <span class="track-num">02</span>
+        <h3>ERP &amp; Enterprise Apps</h3>
+        <p class="track-desc">SAP S/4HANA, Oracle Fusion, Salesforce, Workday. Functional and technical streams.</p>
+      </article>
+
+      <article class="track-card">
+        <span class="track-num">03</span>
+        <h3>Data &amp; Analytics</h3>
+        <p class="track-desc">Modern data engineering — warehousing, ETL/ELT, modeling, BI. The foundation work that makes AI possible.</p>
+      </article>
+
+      <article class="track-card">
+        <span class="track-num">04</span>
+        <h3>Cloud &amp; DevOps</h3>
+        <p class="track-desc">AWS, Azure, GCP. Migration, infrastructure-as-code, Kubernetes, FinOps. Built for enterprise realities.</p>
+      </article>
+
+      <article class="track-card">
+        <span class="track-num">05</span>
+        <h3>Software Development</h3>
+        <p class="track-desc">Java, .NET, React/Node. Enterprise integration patterns, microservices, and clean delivery.</p>
+      </article>
+
+      <article class="track-card">
+        <span class="track-num">06</span>
+        <h3>Quality &amp; Compliance</h3>
+        <p class="track-desc">CSV, GxP, 21 CFR Part 11 validation. Test automation for regulated and non-regulated environments.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TECH BADGES MARQUEE — rolling logos of what we teach
+     ============================================================ -->
+<section class="tech-marquee-section" aria-label="Technologies we teach" data-screen-label="06 Tech">
+  <div class="container">
+    <p class="tech-marquee-label">What we teach &nbsp;·&nbsp; the platforms our clients hire for</p>
+  </div>
+  <div class="tech-marquee">
+    <div class="tech-marquee-track">
+      <span class="tech-badge t-bold">OpenAI</span>
+      <span class="tech-badge t-allcaps">ANTHROPIC</span>
+      <span class="tech-badge t-italic">Hugging Face</span>
+      <span class="tech-badge t-mono">langchain</span>
+      <span class="tech-badge t-bold">SAP S/4HANA</span>
+      <span class="tech-badge t-allcaps">ORACLE</span>
+      <span class="tech-badge t-italic">Salesforce</span>
+      <span class="tech-badge t-bold">Workday</span>
+      <span class="tech-badge t-mono">databricks</span>
+      <span class="tech-badge t-italic">Snowflake</span>
+      <span class="tech-badge t-bold">dbt</span>
+      <span class="tech-badge t-allcaps">AWS</span>
+      <span class="tech-badge t-bold">Azure</span>
+      <span class="tech-badge t-italic">Google Cloud</span>
+      <span class="tech-badge t-mono">kubernetes</span>
+      <span class="tech-badge t-bold">Terraform</span>
+      <span class="tech-badge t-italic">PyTorch</span>
+      <span class="tech-badge t-allcaps">PYTHON</span>
+      <span class="tech-badge t-mono">react</span>
+      <span class="tech-badge t-bold">.NET</span>
+      <span class="tech-badge t-italic">Java</span>
+      <span class="tech-badge t-allcaps">GAMP 5</span>
+      <span class="tech-badge t-mono">21 CFR Part 11</span>
+      <span class="tech-badge t-italic">Selenium</span>
+
+      <!-- duplicate set for seamless loop -->
+      <span class="tech-badge t-bold" aria-hidden="true">OpenAI</span>
+      <span class="tech-badge t-allcaps" aria-hidden="true">ANTHROPIC</span>
+      <span class="tech-badge t-italic" aria-hidden="true">Hugging Face</span>
+      <span class="tech-badge t-mono" aria-hidden="true">langchain</span>
+      <span class="tech-badge t-bold" aria-hidden="true">SAP S/4HANA</span>
+      <span class="tech-badge t-allcaps" aria-hidden="true">ORACLE</span>
+      <span class="tech-badge t-italic" aria-hidden="true">Salesforce</span>
+      <span class="tech-badge t-bold" aria-hidden="true">Workday</span>
+      <span class="tech-badge t-mono" aria-hidden="true">databricks</span>
+      <span class="tech-badge t-italic" aria-hidden="true">Snowflake</span>
+      <span class="tech-badge t-bold" aria-hidden="true">dbt</span>
+      <span class="tech-badge t-allcaps" aria-hidden="true">AWS</span>
+      <span class="tech-badge t-bold" aria-hidden="true">Azure</span>
+      <span class="tech-badge t-italic" aria-hidden="true">Google Cloud</span>
+      <span class="tech-badge t-mono" aria-hidden="true">kubernetes</span>
+      <span class="tech-badge t-bold" aria-hidden="true">Terraform</span>
+      <span class="tech-badge t-italic" aria-hidden="true">PyTorch</span>
+      <span class="tech-badge t-allcaps" aria-hidden="true">PYTHON</span>
+      <span class="tech-badge t-mono" aria-hidden="true">react</span>
+      <span class="tech-badge t-bold" aria-hidden="true">.NET</span>
+      <span class="tech-badge t-italic" aria-hidden="true">Java</span>
+      <span class="tech-badge t-allcaps" aria-hidden="true">GAMP 5</span>
+      <span class="tech-badge t-mono" aria-hidden="true">21 CFR Part 11</span>
+      <span class="tech-badge t-italic" aria-hidden="true">Selenium</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA V2
+     ============================================================ -->
+<section class="final-cta-v2" data-screen-label="06 CTA">
+  <div class="container reveal">
+    <div class="final-cta-v2-grid">
+      <h2>Ready for a<br>career <em>conversation?</em></h2>
+      <div class="cta-side">
+        <p>Free 1:1 consultation. We'll help you figure out the right next step — whether or not it's training with us.</p>
+        <a href="/contact" class="btn btn-primary" style="align-self:flex-start;">Schedule a consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="contact-row">
+          <span>or email</span>
+          <a href="mailto:careers@srsoftllc.com">careers@srsoftllc.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</BaseLayout>

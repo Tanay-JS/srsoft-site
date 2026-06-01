@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact — SR Soft LLC"
+  description="Contact SR Soft LLC — AI, ERP, data, pharma, and cloud consulting. Sugar Land, Texas."
+  current="contact"
+>
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Get in touch</p>
+    <h1 class="display-2">Tell us what you're working on.</h1>
+    <p class="lead">Quickest path to a useful conversation: a few sentences about the problem, the systems involved, and what you've already tried. We respond within one business day.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid reveal">
+
+      <!-- INFO -->
+      <div class="contact-info">
+        <div class="info-block">
+          <h4>Headquarters</h4>
+          <p>18722 University Blvd<br>Suite 200<br>Sugar Land, TX 77479</p>
+        </div>
+        <div class="info-block">
+          <h4>Phone</h4>
+          <a href="tel:+17328352220">+1 732-835-2220</a>
+        </div>
+        <div class="info-block">
+          <h4>General inquiries</h4>
+          <a href="mailto:admin@srsoftllc.com">admin@srsoftllc.com</a>
+        </div>
+        <div class="info-block">
+          <h4>Careers</h4>
+          <a href="mailto:careers@srsoftllc.com">careers@srsoftllc.com</a>
+        </div>
+        <div class="info-block">
+          <h4>Hours</h4>
+          <p style="font-size: 17px;">Monday–Friday<br>9:00 AM – 6:00 PM CST</p>
+        </div>
+
+        <div class="contact-everify-card">
+          <img src="/e-verify-logo.png" alt="E-Verify" class="contact-everify-logo" width="240" height="77" loading="lazy">
+          <div>
+            <p class="contact-everify-title">Authorized E-Verify Employer</p>
+            <p class="contact-everify-body">SR Soft LLC participates in the E-Verify program for U.S. employment eligibility.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name">
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
+        </div>
+        <div class="form-row">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" autocomplete="organization" placeholder="Where you work">
+        </div>
+        <div class="form-row">
+          <label for="phone">Phone <span style="color: var(--fg-faint); text-transform: none; letter-spacing: 0;">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 555-000-0000">
+        </div>
+        <div class="form-row">
+          <label for="topic">What can we help with?</label>
+          <select id="topic" name="topic" required>
+            <option value="">Select a topic</option>
+            <option value="ai">AI consulting or deployment</option>
+            <option value="erp">ERP implementation or migration</option>
+            <option value="pharma">Pharma / life sciences validation</option>
+            <option value="data">Data engineering or analytics</option>
+            <option value="cloud">Cloud migration or modernization</option>
+            <option value="management">Management consulting</option>
+            <option value="hire-consultant">Hiring an SR Soft consultant</option>
+            <option value="join-team">Joining the SR Soft team</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="timeline">Timeline</label>
+          <select id="timeline" name="timeline">
+            <option value="">Select a timeline</option>
+            <option value="30-days">Within 30 days</option>
+            <option value="1-3-months">1–3 months</option>
+            <option value="3-6-months">3–6 months</option>
+            <option value="exploring">Just exploring</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" required placeholder="What's the problem? What systems are involved? What have you already tried?"></textarea>
+          <p class="helper">We respond within one business day. No automated funnels.</p>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Send message <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</BaseLayout>

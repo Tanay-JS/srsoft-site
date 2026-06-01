@@ -1,0 +1,35 @@
+# ============================================================================
+# config.yml — tells the CMS where content lives and what fields posts have.
+# This is Decap-compatible, so it works in both Sveltia and Decap unchanged.
+# ============================================================================
+
+backend:
+  name: github
+  # CHANGE THIS to your repo: "your-github-username/your-repo-name"
+  repo: YOUR_GITHUB_USERNAME/srsoft-site
+  branch: main
+
+# Where uploaded images go (must match a real folder under /public).
+media_folder: "public/uploads"
+# The path images are served from on the live site.
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Insights / Articles"
+    folder: "src/content/blog"
+    create: true
+    # File name pattern for new posts (uses the title to make a URL slug).
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Short description", name: "description", widget: "text" }
+      - { label: "Publish date", name: "pubDate", widget: "datetime" }
+      - { label: "Published (uncheck to hide as draft)", name: "published", widget: "boolean", default: true }
+      - { label: "Author", name: "author", widget: "string", default: "SR Soft LLC" }
+      - { label: "Category", name: "category", widget: "string", default: "Insights", hint: "e.g. SAP & AI, Pharma, Cloud" }
+      - { label: "Reading time", name: "readingTime", widget: "string", required: false, hint: "e.g. 10 min read" }
+      - { label: "Cover image", name: "cover", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

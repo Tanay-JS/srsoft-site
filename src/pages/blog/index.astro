@@ -1,0 +1,78 @@
+---
+// Insights listing — ported from blog.html, now driven by the content
+// collection. Newest post is featured; the rest fill the grid. The newsletter
+// form is wired to Netlify Forms (was a placeholder alert in the prototype).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => p.data.published)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const fmt = (d) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+const featured = posts[0];
+const rest = posts.slice(1);
+const num = (i) => String(i).padStart(2, '0');
+---
+<BaseLayout
+  title="Insights — SR Soft LLC"
+  description="Insights from SR Soft — essays on SAP, AI, pharma compliance, and the realities of enterprise consulting."
+  current="blog"
+>
+<section class="page-head insights-head">
+  <div class="container">
+    <p class="eyebrow">Insights</p>
+    <h1 class="display-2">Field notes from <em>real engagements.</em></h1>
+    <p class="lead">Essays on SAP, AI, and the work of moving modern systems into companies that depend on systems older than most of the people building them. Twenty years' worth of pattern recognition, written down.</p>
+  </div>
+</section>
+
+{featured && (
+  <section>
+    <div class="container">
+      <div class="blog-featured reveal">
+        <div>
+          <p class="blog-featured-meta"><span class="post-num">/01</span>Featured{featured.data.readingTime ? ` · ${featured.data.readingTime}` : ''} · {featured.data.category}</p>
+          <h2><a href={`/blog/${featured.slug}/`}>{featured.data.title}</a></h2>
+          <p>{featured.data.description}</p>
+          <a href={`/blog/${featured.slug}/`} class="btn btn-outline">Read article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="blog-featured-visual" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+)}
+
+<section>
+  <div class="container">
+    <p class="insights-grid-eyebrow">Recent essays</p>
+    <div class="posts-grid">
+      {rest.map((post, i) => (
+        <article class="post-card reveal">
+          <a href={`/blog/${post.slug}/`}>
+            <p class="post-card-meta"><span class="post-num">/{num(i + 2)}</span>{post.data.category}{post.data.readingTime ? ` · ${post.data.readingTime}` : ''}</p>
+            <h3>{post.data.title}</h3>
+          </a>
+          <p>{post.data.description}</p>
+          <a href={`/blog/${post.slug}/`} class="post-card-link">Read more <span aria-hidden="true">&#8594;</span></a>
+        </article>
+      ))}
+    </div>
+    {posts.length === 0 && <p>No articles yet.</p>}
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Get our essays. <em>Once a month.</em></h2>
+    <p>No marketing. No round-ups. Just one well-considered piece on enterprise AI, ERP, or the work of consulting itself.</p>
+    <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <label for="newsletter-email" class="sr-only">Email address</label>
+      <input type="email" id="newsletter-email" name="email" required autocomplete="email" placeholder="your@email.com" aria-required="true" />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+</BaseLayout>
